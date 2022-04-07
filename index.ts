@@ -19,13 +19,8 @@ app.get("/", (req: Request, res: Response) => {
 
 app.get("/bye", (req: Request, res: Response) => {
     //send Goodbye world
-    res.send("Goodbye World");
+    res.status(200).send("Goodbye World");
   });
-  
-
-
-
-
 
 // Execute our App in PORT
 
