@@ -2,6 +2,7 @@
 // CODEBACKEND
 
 This is a code verification project carried out with severals technologies.
+remember npm install, to start
 
 // Installation
 

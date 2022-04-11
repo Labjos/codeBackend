@@ -3,22 +3,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
-//configuration of env file
+const index_1 = __importDefault(require("./src/server/index"));
+const logger_1 = require("./src/utils/logger");
 dotenv_1.default.config();
-// create Express App
-const app = (0, express_1.default)();
 const port = process.env.PORT || 8000;
-// define first route of App
-app.get("/", (req, res) => {
-    //send Goodbye world
-    res.send("App Express + TS + Swagger + Mongoose + Hola Caracola + Jest");
+// Execute server
+index_1.default.listen(port, () => {
+    (0, logger_1.logSuccess)(`[SERVER ON]: Running in http://localhost:${port}/api`);
 });
-app.get("/bye", (req, res) => {
-    //send Goodbye world
-    res.send("Goodbye World");
+// control Server Error
+index_1.default.on('error', (error) => {
+    (0, logger_1.logError)(`[SERVER ERROR]: ${error}`);
 });
-// Execute our App in PORT
-app.listen(port, () => console.log(`Express SERVER: Running at http://localhost:${port}`));
+exports.default = index_1.default;
 //# sourceMappingURL=index.js.map
