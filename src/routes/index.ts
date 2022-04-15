@@ -4,8 +4,8 @@
  */
 
 import express, { Request, Response } from "express"
-import helloRouter from "./HelloRouter";
-import { logInfo } from "../utils/logger";
+import helloRouter from "./HelloRouter"
+import { logInfo } from "../utils/logger"
 
 let server = express()
 
@@ -17,7 +17,7 @@ rootRouter.get('/', (req: Request, res: Response) => {
   logInfo('GET: http://localhost:8000/api/')
 
 //send Goodbye world
-  res.send("Welcome to App Express + TS + Swagger + Mongoose + Nodemon + Jest");
+  res.send("Welcome to App Express + TS + Swagger + Mongoose + Nodemon + Jest")
   })
 
 //Redirections to Routers & controllers

@@ -1,4 +1,5 @@
 
+import { BasicResponse } from "@/controller/types";
 import express, { Request, Response } from "express";
 import { HelloController } from "../controller/HelloController";
 import { logInfo } from "../utils/logger";
@@ -7,27 +8,27 @@ import { logInfo } from "../utils/logger";
 
 let helloRouter = express.Router()
 
-//http://ocalhost:8000/api/hello?name=Martin/
-    
+// http://ocalhost:8000/api/hello?name=Martin/
+
     helloRouter.route('/')
 
-    //GET
+// GET
     .get(async(req:Request, res:Response) => {
-        //obtain a Query Param value
-        let name: any = req?.query?.name;
-        logInfo(`query param: ${name}`);
+        // obtain a Query Param value
+        let name: any = req?.query?.name
+        logInfo(`query param: ${name}`)
 
-        //controller instance
+    // controller instance
 
-        const controller: HelloController = new HelloController();
+        const controller: HelloController = new HelloController()
         
-        //obtain Response
+// obtain Response
 
-        const response = await controller.getMessage(name);
+        const response:BasicResponse = await controller.getMessage(name)
 
-        //send to th client the response
-        return res.send(response);
-    });
+    // send to th client the response
+    return res.send(response)
+  })
 
 // Export Hello Router
 

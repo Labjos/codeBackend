@@ -20,6 +20,9 @@ const server: Express = express()
 server.use('/api',
   rootRouter)
 
+// Static Server
+server.use(express.static('public'))
+
 // TODO Mongoose Connection
 
 // security Server
